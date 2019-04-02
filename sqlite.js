@@ -7,6 +7,8 @@ const sqlite3 = require('sqlite3').verbose();
 
 const dbConn = new sqlite3.Database("pet.db");
 
+dbConn.run("CREATE TABLE IF NOT EXISTS 'pets' ( 'id' INTEGER PRIMARY KEY AUTOINCREMENT , 'name' CHAR(50) NULL , 'color' CHAR(20) NULL , 'pet' CHAR(10) NOT NULL )");
+
 exports.insertValue = function(tableName, column, Value){
 	let query = `insert into ${tableName} ${column} values ${Value}`;
 	dbConn.run(query, (err)=>{

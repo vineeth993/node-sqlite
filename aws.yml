@@ -1,0 +1,8 @@
+---
+- hosts: aws
+  gather_facts: False
+  remote_user: ubuntu
+
+  tasks :
+   - name: Install Application
+     script: install.sh
