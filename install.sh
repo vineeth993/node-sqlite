@@ -1,6 +1,6 @@
 
 sudo apt-get install git
-cd sampleNodeAppsudo apt install nodejs-legacy -y
+sudo apt install nodejs-legacy -y
 sudo apt install npm -y
 sudo apt-get install sqlite3 libsqlite3-dev
 cd /opt/

@@ -4,5 +4,35 @@
   remote_user: ubuntu
 
   tasks :
-   - name: Install Application
-     script: install.sh
+   - name: System Update
+     apt:
+      upgrade: yes
+      update_cache: yes
+     sudo: yes
+
+   - name: update tooling
+     apt:
+      name: "{{ item }}"
+      update_cache: true
+     with_items:
+       - nodejs
+       - npm
+       - sqlite3
+       - libsqlite3-dev
+     sudo: yes
+
+   - name: Cloning application from repo
+     git:
+      repo: https://github.com/vineeth993/node-sqlite.git
+      version: master
+      dest: /opt/node-sqlite/
+     sudo: yes
+
+   - name: Change directory
+     command: chdir=/opt/node-sqlite ls
+     sudo: yes
+
+   - name: Run node application
+     command: npm start &
+     sudo: yes
+
