@@ -25,14 +25,21 @@
      git:
       repo: https://github.com/vineeth993/node-sqlite.git
       version: master
-      dest: /opt/node-sqlite/
+      dest: /home/ubuntu/node-sqlite/
      sudo: yes
 
-   - name: Change directory
-     command: chdir=/opt/node-sqlite ls
+   - name: Npm installs
+     npm:
+      name: "{{ item }}"
+      path: /home/ubuntu/node-sqlite/
+     with_items:
+      - sqlite3
+      - express
+      - ejs
      sudo: yes
+
 
    - name: Run node application
-     command: npm start &
+     script: install.sh
      sudo: yes
 

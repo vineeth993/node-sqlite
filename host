@@ -1,2 +1,2 @@
 [aws]
-18.222.224.79 ansible_ssh_private_key_file=/home/vineeth/Personal/ServerCredentials/Node.pem
+18.222.224.79  ansible_ssh_private_key_file=/home/vineeth/Personal/ServerCredentials/Node.pem

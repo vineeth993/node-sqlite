@@ -30,9 +30,3 @@ exports.selectValue = function(tableName, condition = 1, callback){
 		callback(row);
 	});
 }
-
-exports.count = function(){
-	count ++ ;
-	console.log("in value");
-	return count
-}
